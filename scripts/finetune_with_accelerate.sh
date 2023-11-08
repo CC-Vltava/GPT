@@ -8,9 +8,6 @@ GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$BATCH_SIZE_PER_GPU))
 echo "Training llama model ${MODEL_SIZE} using $NUM_GPUS GPUs, $BATCH_SIZE_PER_GPU batch size per GPU, $GRADIENT_ACC_STEPS gradient accumulation steps"
 
 # 几个需要修改的地方
-# model_name_or_path 模型的路径
-# tokenizer_name tokenizer的名字
-# train_file 训练数据的路径
 # output_dir 输出的路径
 accelerate launch \
     --mixed_precision fp16 \

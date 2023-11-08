@@ -2,8 +2,6 @@
 from models.model import GPT
 from transformers import AutoTokenizer, AutoModel
 
-
-
 def solve_data(samples):
     encode_tokenizer_path = '/data1/cchuan/data/weight/xlmr/'
 
@@ -29,11 +27,15 @@ def solve_data(samples):
     return data
 
 
+
+input_text = "Your input"
+
+
 GPU_DEVICE='cuda'
 # sample = read_data()
 sample = {
-    'prompt': ['Hi, how are you?'],
-    'completion': ['I am fine!']
+    'prompt': [input_text],
+    'completion': ['']
 }
 
 sample = solve_data(sample)
@@ -42,9 +44,8 @@ model = GPT()
 model.load_model('/data1/cchuan/model_weight/GPT_1M/5/pytorch_model.bin')
 model.to_device(GPU_DEVICE)
 
-
 output = model.generate(sample)
 
-print('here is the output')
+print('Here is the output')
 print(output)
 
